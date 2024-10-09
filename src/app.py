@@ -44,7 +44,7 @@ class ImageEncryptorApp:
         self.master = master
         self.master.title("Encryptor2021101237김윤영")
         
-        self.master.geometry("600x400")  # 창 크기를 600x400으로 설정
+        self.master.geometry("300x400")  # 창 크기를 600x400으로 설정
         
         self.key = None
         self.mode = None
@@ -150,9 +150,9 @@ class ImageEncryptorApp:
             with open(f"{key_name}.bin", 'rb') as key_file:
                 loaded_key = key_file.read()
             with open(f"{key_name}_password.txt", 'r') as pass_file:
-                saved_password = pass_file.read()  # Load the saved password
+                key = pass_file.read()  # Load the saved password
 
-            if password != saved_password:
+            if password != key:
                 messagebox.showerror("Error", "Incorrect password!")
                 return
         except FileNotFoundError:
@@ -163,7 +163,7 @@ class ImageEncryptorApp:
         if mode == 'encrypt':
             with open(self.stream_path, 'r', encoding='utf-8') as f:
                 plaintext = f.read().encode()  # 텍스트를 바이트로 변환
-            outputtext = RC4(saved_password, plaintext)
+            outputtext = RC4(key, plaintext)
             output_file = "RC4encrypted.bin"
             with open(output_file, 'wb') as f:
                 f.write(outputtext)
@@ -173,7 +173,7 @@ class ImageEncryptorApp:
             if not isinstance(self.ciphertext, bytes):
                 messagebox.showerror("Error", "암호화되지 않은 파일입니다.")
                 return
-            decrypted = RC4(saved_password, self.ciphertext)
+            decrypted = RC4(key, self.ciphertext)
             outputtext = decrypted.decode('utf-8')
             output_file = "RC4decrypted.txt"
             with open(output_file, 'w', encoding='utf-8') as f: 
@@ -205,7 +205,6 @@ class ImageEncryptorApp:
             # 바이너리 파일을 읽어서 바이트 형식으로 저장
                 with open(self.ciphertext_path, 'rb') as f:
                     self.ciphertext = f.read()
-                    # 바이너리 데이터를 읽어서 저장
             except FileNotFoundError:
                 messagebox.showerror("Error", "Ciphertext file not found!")
                 self.ciphertext = None
