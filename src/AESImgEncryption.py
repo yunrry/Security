@@ -13,7 +13,6 @@ filename_decrypted_cfb = "file_decrypted_cfb.png"
 filename_encrypted_ctr = "file_encrypted_ctr.png" 
 filename_decrypted_ctr = "file_decrypted_ctr.png"
 filename_ctr = "encryption_ctr.bin"  
-# filename_key = "encryption_key.bin" 
 format = "png"
 
 # AES128을 위한 랜덤 키 생성 함수
