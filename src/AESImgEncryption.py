@@ -4,16 +4,15 @@ from Crypto.Cipher import AES
 from Crypto.Util import Counter
 
 # 파일 경로 설정
-# input_filename = '/Users/yunrry/Desktop/4-2/정보보안/AES/sampleImgforAES.png'
-# filename_encrypted_ecb = "file_encrypted_ecb.png"  
-# filename_encrypted_cbc = "file_encrypted_cbc.png"  
-# filename_decrypted_ecb = "file_decrypted_ecb.png"  
-# filename_decrypted_cbc = "file_decrypted_cbc.png"
-# filename_encrypted_cfb = "file_encrypted_cfb.png"  
-# filename_decrypted_cfb = "file_decrypted_cfb.png"
-# filename_encrypted_ctr = "file_encrypted_ctr.png" 
-# filename_decrypted_ctr = "file_decrypted_ctr.png"
-# filename_ctr = "encryption_ctr.bin"  
+filename_encrypted_ecb = "file_encrypted_ecb.png"  
+filename_encrypted_cbc = "file_encrypted_cbc.png"  
+filename_decrypted_ecb = "file_decrypted_ecb.png"  
+filename_decrypted_cbc = "file_decrypted_cbc.png"
+filename_encrypted_cfb = "file_encrypted_cfb.png"  
+filename_decrypted_cfb = "file_decrypted_cfb.png"
+filename_encrypted_ctr = "file_encrypted_ctr.png" 
+filename_decrypted_ctr = "file_decrypted_ctr.png"
+filename_ctr = "encryption_ctr.bin"  
 # filename_key = "encryption_key.bin" 
 format = "png"
 
